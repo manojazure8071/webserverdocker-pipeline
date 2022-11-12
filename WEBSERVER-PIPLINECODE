@@ -1,0 +1,22 @@
+pipeline {
+    agent any
+    stages {
+        stage('git_clone') {
+            steps {
+                // Get some code from a GitHub repository
+                git url: 'https://github.com/vsvvkt/AzureProject1.git', branch: 'master'
+            }
+		}
+		stage('dockerimagebuild') {
+			steps {
+				sh 'sudo docker build . -t webserver'
+			}
+		}
+		stage('dockercontainer') {
+			steps {
+				sh 'sudo docker run -p 81:80 -dit webserver'
+			}
+		}
+		
+	}
+}
