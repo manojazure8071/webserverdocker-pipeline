@@ -4,7 +4,7 @@ pipeline {
         stage('git_clone') {
             steps {
                 // Get some code from a GitHub repository
-                git url: 'https://github.com/vsvvkt/AzureProject1.git', branch: 'master'
+                git url: 'https://github.com/manojazure8071/webserverdocker-pipeline.git', branch: 'main'
             }
 		}
 		stage('dockerimagebuild') {
